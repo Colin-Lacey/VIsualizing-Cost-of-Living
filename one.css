@@ -1,0 +1,28 @@
+svg{
+	background: hsla(202, 70%, 80%, 1);
+}
+
+.country{
+	fill: hsla(74, 69%, 87%, 1);
+	stroke-width: 0.1;
+	stroke: hsla(57, 0%, 69%, 1);
+}
+
+.mouseover > .city-circle{
+	r: 5;
+}
+
+.selected > .city-circle{
+	stroke: black;
+	stroke-width: 1;
+	r: 3;
+}
+
+p{
+	font-family: Arial;
+	font-size: 20px;
+}
+
+.bold{
+	font-weight: 700;
+}
