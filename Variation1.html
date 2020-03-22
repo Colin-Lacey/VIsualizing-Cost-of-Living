@@ -30,7 +30,7 @@ var path = d3.geo.path()
 var g = svg.append("g");
 
 let sizeScale = d3.scaleLinear()
-  .domain([70, 130])
+  .domain([10, 130])
   .range(['.5', '2']);
 
 // load and display the World
@@ -53,7 +53,7 @@ d3.json("world.topojson", function(error, topology) {
        .attr("cy", function(d) {
                return projection([d.lng, d.lat])[1];
        })
-       .attr("r", d => sizeScale(d["Cost of Living Index"]))
+       .attr("r", d => sizeScale(d["Rent Index"]))
        .attr("fill", "red")
        .attr("stroke","black")
        .attr("stroke-width","0.2")
