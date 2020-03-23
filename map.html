@@ -18,8 +18,9 @@
     var projection = d3.geoMercator().translate([w/2, h/2]).scale(2200).center([0,40]);
     var path = d3.geoPath().projection(projection);
         
+
     let sizeScale = d3.scaleLinear()
-    .domain([70, 90])
+    .domain([70, 130])
     .range(['4', '7.5']);
   // load data  
 var worldmap = d3.json("countries.geojson");
@@ -32,7 +33,7 @@ Promise.all([worldmap, cities]).then(function(values){
         .enter()
         .append("path")
         .attr("class","continent")
-        .attr("d", path),
+        .attr("d", path)
  // draw points
     svg.selectAll("circle")
         .data(values[1])
