@@ -30,7 +30,7 @@ var path = d3.geo.path()
 var g = svg.append("g");
 
 let sizeScale = d3.scaleLinear()
-  .domain([70, 130])
+  .domain([10, 130])
   .range(['.5', '2']);
 
 // load and display the World
@@ -54,11 +54,21 @@ d3.json("world.topojson", function(error, topology) {
                return projection([d.lng, d.lat])[1];
        })
        .attr("r", d => sizeScale(d["Cost of Living Index"]))
-       .attr("fill", "red")
-       .attr("stroke","black")
-       .attr("stroke-width","0.2")
-    });
+       .attr("fill", "pink")
 
+       .select(function() {return this.parentNode;})
+       .append("circle")
+       .attr("cx", function(d) {
+               return projection([d.lng, d.lat])[0];
+       })
+       .attr("cy", function(d) {
+               return projection([d.lng, d.lat])[1];
+       })
+       .attr("r", d => sizeScale(d["Groceries Index"]))
+       .attr("fill", "cyan")
+
+  
+    });
 
 g.selectAll("path")
       .data(topojson.object(topology, topology.objects.countries)
